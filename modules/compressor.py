@@ -28,10 +28,10 @@ class PictureExtended(Picture):
 	def __init__(self, message, quality=20):
 		if message.reply_to_message:
 			self.PhotoSize_object = message.reply_to_message.photo[-1]
-			self.quote = True
+			self.reply_to_message_id = message.reply_to_message.message_id
 		else:
 			self.PhotoSize_object = message.photo[-1]
-			self.quote = False
+			self.reply_to_message_id = None
 
 		self.chat_id = message.chat_id
 		self.message_id = message.message_id
@@ -45,7 +45,7 @@ class PictureExtended(Picture):
 
 	def send(self):
 		with open(self.compressed_file_path, 'rb') as file:
-			self.message.reply_photo(file, quote=self.quote)
+			self.message.reply_photo(file, reply_to_message_id=self.reply_to_message_id)
 
 	def one_shot(self):
 		self.download()
