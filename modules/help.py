@@ -2,8 +2,6 @@ import logging
 
 from telegram.ext import CommandHandler
 from telegram.ext import BaseFilter
-from telegram.ext.dispatcher import run_async
-from telegram import ParseMode
 
 logger = logging.getLogger(__name__)
 
@@ -27,11 +25,9 @@ Command shortcuts: `/nmjpeg, /morejpeg, /jpeg` (the "e" in "jpeg" is optional)
 """
 
 
-@run_async
-def send_help(bot, update):
+def send_help(_, update):
     logger.info("start or help command")
-    bot.send_message(update.message.chat_id, help_message,
-                     parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+    update.message.reply_markdown(help_message, disable_web_page_preview=True)
 
 
 class module:
