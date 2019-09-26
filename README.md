@@ -1,4 +1,4 @@
-### "Needs more JPEG" Telegram bot
+### "[Needs more JPEG](http://knowyourmeme.com/memes/needs-more-jpeg)" Telegram bot
 
 Inspired to [FracturedRetina/Needs-More-JPEG-bot](https://github.com/FracturedRetina/Needs-More-JPEG-bot)
 
